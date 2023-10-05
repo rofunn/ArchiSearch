@@ -17,7 +17,7 @@ function App() {
         messages: [
           {
             role: "user",
-            content: prompt,
+            content: `Please provide 5 contemporary architecture of this city ${prompt}, but just provide the names of the architectures without any details, and return them in an array format.`,
           },
         ],
       })
