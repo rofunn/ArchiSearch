@@ -1,7 +1,10 @@
+import { FormEvent, useState } from "react";
 import "./App.css";
 import OpenAI from "openai";
 
 function App() {
+  const [prompt, setPrompt] = useState("");
+  const [result, setResult] = useState("");
   const openai = new OpenAI({
     apiKey: import.meta.env.VITE_CHAT_API_KEY,
     dangerouslyAllowBrowser: true,
@@ -14,17 +17,37 @@ function App() {
         messages: [
           {
             role: "user",
-            content: "Give me a list of contemporary architecture",
+            content: prompt,
           },
         ],
       })
-      .then((res) => console.log(res.choices[0].message.content));
+      .then((res) => {
+        const data = res.choices[0].message.content;
+        if (data) {
+          setResult(data);
+        }
+      })
+      .catch((error: Error) => {
+        console.log(error.message);
+      });
   };
-  chatCompletion();
 
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault();
+    chatCompletion();
+  };
   return (
     <>
-      <p>try</p>
+      <form onSubmit={(e) => handleSubmit(e)}>
+        <input
+          onChange={(e) => {
+            setPrompt(e.target.value);
+          }}
+          value={prompt}
+        />
+        <button type="submit">Search</button>
+      </form>
+      <p>{result}</p>
     </>
   );
 }
