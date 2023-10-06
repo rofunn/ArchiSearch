@@ -56,7 +56,7 @@ function App() {
   };
   return (
     <>
-      {/* <form onSubmit={(e) => handleSubmit(e)}>
+      <form onSubmit={(e) => handleSubmit(e)}>
         <input
           onChange={(e) => {
             setPrompt(e.target.value);
@@ -66,8 +66,7 @@ function App() {
         <button type="submit">Search</button>
       </form>
       <p>{result}</p>
-      <img src={image} /> */}
-      <p>Test Test 123 123</p>
+      <img src={image} />
     </>
   );
 }
