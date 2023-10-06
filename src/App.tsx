@@ -55,19 +55,30 @@ function App() {
     chatCompletion();
   };
   return (
-    <>
-      <form onSubmit={(e) => handleSubmit(e)}>
+    <main className="background h-screen">
+      <form
+        onSubmit={(e) => handleSubmit(e)}
+        className="flex items-center justify-center h-full gap-4"
+      >
         <input
           onChange={(e) => {
             setPrompt(e.target.value);
           }}
           value={prompt}
+          className="w-1/3 h-[10%] rounded-full bg-o/50 placeholder:text-5xl placeholder:text-w pt-5 px-5"
+          placeholder="I want to go to......"
+          type="text"
         />
-        <button type="submit">Search</button>
+        <button
+          type="submit"
+          className="text-5xl bg-o h-[10%] p-2 rounded-xl text-w"
+        >
+          Search
+        </button>
       </form>
       <p>{result}</p>
       <img src={image} />
-    </>
+    </main>
   );
 }
 
