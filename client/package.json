@@ -1,5 +1,5 @@
 {
-  "name": "vite-project",
+  "name": "Archi Search",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@types/axios": "^0.14.0",
     "axios": "^1.5.1",
     "google-map-react": "^2.2.1",
     "openai": "^4.11.1",
